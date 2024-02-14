@@ -3,7 +3,7 @@ Traffic lights
 
 This simulation uses traffic lights and a four-way crossing visual to demonstrate the way in which vehicular and pedestrian traffic are managed safely. This includes moving pedestrian traffic appropriately while allowing other movable vehicle traffic in other directions. You can safely pass right, left and through pass vehicle traffic at the intersection. 
 
-Design
+Rules: 
 1. lights facing N/S and E/W are pairs. Each pair has the same behavior. (reword)
 2. When north/south facing lights are green or yellow, east/west facing lights should be red (and vice versa)
 3. Transition of colors should be green for 5 seconds then yellow for 3 seconds then red for 5 seconds then back to green
@@ -22,5 +22,7 @@ Secure States (only thinking about vehicles going straight or right, no pedestri
 7. E/W lights only allow for left turns. N/A are red. Cars on E/W can only turn left.
 
 Unsecure States
-1. E/W pedestrians risk being run over if they cross N/S lights being green because of cars turning right. 
-2. N/S pedestrians risk being run over if they cross E/W lights being green because of cars turning right. 
+1. E/W pedestrians risk being run over if they cross N/S lights being green or yellow because of cars turning right. 
+2. N/S pedestrians risk being run over if they cross E/W lights being green or yellow because of cars turning right. 
+3. Pedestrians try to cross diagonally. 
+4. Cars turn right on red, there may be pedestrians crossing. 
