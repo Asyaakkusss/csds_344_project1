@@ -1,7 +1,8 @@
 import pyglet
 
-window = pyglet.window.Window(width=800, height=600, caption='Traffic Simulation')
+
 image = pyglet.resource.image('Typical-traffic-light-system-at-a-four-way-intersection.png')
+window = pyglet.window.Window(width = image.width, height=image.height, caption='Traffic Simulation')
 
 @window.event
 def on_draw():
