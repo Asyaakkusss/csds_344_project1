@@ -12,7 +12,7 @@ Rules:
 </ol>
 
 <h3>our part</h3>
-Secure States (only thinking about vehicles going straight or right, no pedestrians)
+<h2>Secure States (only thinking about vehicles going straight or right, no pedestrians)</h2>
 <ol>
 <li> all lights are red. No cars are in the intersection. Pedestrians on N/S and E/W can cross and vibe. </li> 
 <li>Only N/S lights are red and cars are stopped. E/W are green and cars are moving. The cars on the E/W side can go straight or right. Pedestrians can't cross anywhere. </li>
@@ -26,7 +26,7 @@ Secure States (only thinking about vehicles going straight or right, no pedestri
 
 </ol>
 
-Unsecure States
+<h2>Unsecure States</h2>
 <ol>
 <li> E/W pedestrians risk being run over if they cross N/S lights being green or yellow because of cars turning right. </li>
 <li> N/S pedestrians risk being run over if they cross E/W lights being green or yellow because of cars turning right. </li>
