@@ -7,7 +7,6 @@ Design
 1. lights facing N/S and E/W are pairs. Each pair has the same behavior. (reword)
 2. When north/south facing lights are green or yellow, east/west facing lights should be red (and vice versa)
 3. Transition of colors should be green for 5 seconds then yellow for 3 seconds then red for 5 seconds then back to green
-
 4. Anticipate all secure and unsecure states and implement mechanisms (traffic light sequences) to ensure a secure state
 
 #our part 
