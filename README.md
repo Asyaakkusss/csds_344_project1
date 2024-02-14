@@ -11,7 +11,7 @@ Rules:
 <li>Anticipate all secure and unsecure states and implement mechanisms (traffic light sequences) to ensure a secure state</li>
 </ol>
 
-#our part 
+<h3>our part</h3>
 Secure States (only thinking about vehicles going straight or right, no pedestrians)
 1. all lights are red. No cars are in the intersection. Pedestrians on N/S and E/W can cross and vibe. 
 2. Only N/S lights are red and cars are stopped. E/W are green and cars are moving. The cars on the E/W side can go straight or right. Pedestrians can't cross anywhere. 
