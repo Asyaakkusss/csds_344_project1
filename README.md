@@ -26,10 +26,21 @@ Rules:
 
 </ol>
 
-<h4>Unsecure States</h4>
+<h4>Unsecure States from Design</h4>
 <ol>
-<li> E/W pedestrians risk being run over if they cross N/S lights being green or yellow because of cars turning right. </li>
-<li> N/S pedestrians risk being run over if they cross E/W lights being green or yellow because of cars turning right. </li>
+<li>Cars turn right on red, there may be pedestrians crossing. (Solution: have no right on red signal) </li>
+<li>N/S cars can turn left when N/S light is green (same time cars can go straight), cars from south direction may turn left when north cars go straight (and vice versa) (Solution: explicit left turn arrow)</li>
+<li>E/W cars can turn left when N/S light is green (same time cars can go straight), cars from west direction may turn left when east cars go straight (and vice versa) (Solution: explicit left turn arrow)</li>
+<li></li>
+</ol>
+
+<h4>Unsecure States from Bad Actors</h4>
+<ol>
 <li> Pedestrians try to cross diagonally.</li>
-<li>Cars turn right on red, there may be pedestrians crossing. </li>
+<li> N/S Cars turning right when E/W pedestrians crossing and N/S lights are green </li>
+<li> E/W Cars turning right when N/S pedestrians crossing and E/W lights are green </li>
+</ol>
+
+<ol>
+<li> |yellow light time| < |red light time| and |green light time|</li>
 </ol>
