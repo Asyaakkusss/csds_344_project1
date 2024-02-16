@@ -1,3 +1,4 @@
+#for other users, remove my sys.path append. lmao 
 import sys
 sys.path.append(r'C:\Users\asyas\AppData\Local\Programs\Python\Python311\Lib\site-packages')
 import pyglet
