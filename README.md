@@ -1,6 +1,8 @@
 # csds_344_project1
 Traffic lights
 
+command for running venv on mac: source traffic/bin/activate
+
 This simulation uses traffic lights and a four-way crossing visual to demonstrate the way in which vehicular and pedestrian traffic are managed safely. This includes moving pedestrian traffic appropriately while allowing other movable vehicle traffic in other directions. You can safely pass right, left and through pass vehicle traffic at the intersection. 
 
 Rules: 
