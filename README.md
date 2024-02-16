@@ -23,7 +23,7 @@ Secure States (only thinking about vehicles going straight or right, no pedestri
 7. E/W lights only allow for left turns. N/A are red. Cars on E/W can only turn left.
 
 Unsecure States
-1. E/W pedestrians risk being run over if they cross N/S lights being green or yellow because of cars turning right. 
-2. N/S pedestrians risk being run over if they cross E/W lights being green or yellow because of cars turning right. 
+1. E/W pedestrians risk being run over if they cross N/S lights being green or yellow because of cars turning right on green. 
+2. N/S pedestrians risk being run over if they cross E/W lights being green or yellow because of cars turning right on green. 
 3. Pedestrians try to cross diagonally. 
-4. Cars turn right on red, there may be pedestrians crossing. 
+4. Cars turn right on red, there may be pedestrians crossing in the area that they are allowed in. 
