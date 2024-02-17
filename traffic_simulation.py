@@ -26,15 +26,19 @@ def ns_green_update(dt):
     path = 'traffic_light_green.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
+    sprite_north.image = new_image
     
 def ns_yellow_update(dt): 
     path = 'traffic_light_yellow.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
+    sprite_north.image = new_image
+
 def ns_red_update(dt): 
     path = 'traffic_light_red.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
+    sprite_north.image = new_image
     
 # Schedule the update function to be called every 60th of a second
 #i = 0
