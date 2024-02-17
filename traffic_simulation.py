@@ -22,28 +22,27 @@ sprite_south.rotation += 90
 
 
 def ns_green_update(dt):
-    green_light = True 
-    path = 'traffic_light_green.png'
-    if green_light:
-        path = 'traffic_light_yellow.png'
 
+    path = 'traffic_light_green.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
-
+    
 def ns_yellow_update(dt): 
-    yellow_light = True
     path = 'traffic_light_yellow.png'
-    if yellow_light: 
-        path = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path)
+    sprite_south.image = new_image
+def ns_red_update(dt): 
+    path = 'traffic_light_red.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     
 # Schedule the update function to be called every 60th of a second
-i = 0
-while i < 10: 
-    pyglet.clock.schedule_interval(ns_yellow_update, 1)
-    pyglet.clock.schedule_interval(ns_green_update, 1)
-    i = i + 1
+#i = 0
+#while i < 10: 
+pyglet.clock.schedule_interval(ns_red_update, 1)
+pyglet.clock.schedule_interval(ns_yellow_update, 1)
+pyglet.clock.schedule_interval(ns_green_update, 1)
+    #i = i + 1
 
 @window.event
 def on_draw():
