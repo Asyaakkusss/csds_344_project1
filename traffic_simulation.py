@@ -39,9 +39,11 @@ def ns_yellow_update(dt):
     sprite_south.image = new_image
     
 # Schedule the update function to be called every 60th of a second
-pyglet.clock.schedule_interval(ns_green_update, 3)
-pyglet.clock.schedule_interval(ns_yellow_update, 3)
-#pyglet.clock.schedule_interval(ns_green_update, 1/60.0)
+i = 0
+while i < 10: 
+    pyglet.clock.schedule_interval(ns_yellow_update, 1)
+    pyglet.clock.schedule_interval(ns_green_update, 1)
+    i = i + 1
 
 @window.event
 def on_draw():
