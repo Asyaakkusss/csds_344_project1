@@ -59,13 +59,16 @@ def ew_green_update(dt):
 
 
 #this part of the code does the interval scheduling for the sprite manipulation 
-pyglet.clock.schedule_interval(ns_red_update, 1)
-pyglet.clock.schedule_interval(ns_yellow_update, 1)
-pyglet.clock.schedule_interval(ns_green_update, 1)
+pyglet.clock.schedule_interval(ns_green_update, 5)
+pyglet.clock.schedule_interval(ns_yellow_update, 5)
+pyglet.clock.schedule_interval(ns_red_update, 5)
 
-pyglet.clock.schedule_interval(ew_green_update, 1)
-pyglet.clock.schedule_interval(ew_yellow_update, 1)
-pyglet.clock.schedule_interval(ew_red_update, 1)
+if (ns_green_update): 
+    pyglet.clock.schedule_interval(ew_yellow_update, 5)
+    pyglet.clock.schedule_interval(ew_red_update, 5)
+
+if(ns_red_update): 
+    pyglet.clock.schedule_interval(ew_green_update, 5)
 
 
 @window.event
