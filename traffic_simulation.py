@@ -22,27 +22,38 @@ sprite_south.rotation += 90
 
 #functions for updating the n/s traffic lights 
 def ns_green_update(dt):
-
     path = 'traffic_light_green.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     sprite_north.image = new_image
-    sprite_east.image = new_image
-    sprite_west.image = new_image
     
 def ns_yellow_update(dt): 
     path = 'traffic_light_yellow.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     sprite_north.image = new_image
-    sprite_east.image = new_image
-    sprite_west.image = new_image
 
 def ns_red_update(dt): 
     path = 'traffic_light_red.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     sprite_north.image = new_image
+
+def ew_red_update(dt):
+    path = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path)
+    sprite_east.image = new_image
+    sprite_west.image = new_image
+
+def ew_yellow_update(dt):
+    path = 'traffic_light_yellow.png'
+    new_image = pyglet.resource.image(path)
+    sprite_east.image = new_image
+    sprite_west.image = new_image
+
+def ew_green_update(dt):
+    path = 'traffic_light_green.png'
+    new_image = pyglet.resource.image(path)
     sprite_east.image = new_image
     sprite_west.image = new_image
 
@@ -51,6 +62,10 @@ def ns_red_update(dt):
 pyglet.clock.schedule_interval(ns_red_update, 1)
 pyglet.clock.schedule_interval(ns_yellow_update, 1)
 pyglet.clock.schedule_interval(ns_green_update, 1)
+
+pyglet.clock.schedule_interval(ew_green_update, 1)
+pyglet.clock.schedule_interval(ew_yellow_update, 1)
+pyglet.clock.schedule_interval(ew_red_update, 1)
 
 
 @window.event
