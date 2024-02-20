@@ -13,8 +13,8 @@ yellow_light = pyglet.image.load('traffic_light_yellow.png')
 red_light = pyglet.image.load('traffic_light_red.png')
 
 
-sprite_west = pyglet.sprite.Sprite(green_light, x= 100, y =125)
-sprite_east = pyglet.sprite.Sprite(green_light, x= 285, y =250)
+sprite_west = pyglet.sprite.Sprite(red_light, x= 100, y =125)
+sprite_east = pyglet.sprite.Sprite(red_light, x= 285, y =250)
 sprite_north = pyglet.sprite.Sprite(green_light, x= 140, y =325)
 sprite_north.rotation += 90
 sprite_south = pyglet.sprite.Sprite(green_light, x= 285, y =150)
@@ -22,53 +22,68 @@ sprite_south.rotation += 90
 
 #functions for updating the n/s traffic lights 
 def ns_green_update(dt):
+    print("north-south green")
     path = 'traffic_light_green.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     sprite_north.image = new_image
+    path2 = 'traffic_light_red.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
     
 def ns_yellow_update(dt): 
+    print("north-south yellow")
     path = 'traffic_light_yellow.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     sprite_north.image = new_image
+    path2 = 'traffic_light_red.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
 
 def ns_red_update(dt): 
+    print("north-south red")
     path = 'traffic_light_red.png'
     new_image = pyglet.resource.image(path)
     sprite_south.image = new_image
     sprite_north.image = new_image
+    path2 = 'traffic_light_green.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
 
+
+############# EW functions--not currently being used ###########################
 def ew_red_update(dt):
-    path = 'traffic_light_red.png'
-    new_image = pyglet.resource.image(path)
+    path2 = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path2)
     sprite_east.image = new_image
     sprite_west.image = new_image
 
 def ew_yellow_update(dt):
-    path = 'traffic_light_yellow.png'
-    new_image = pyglet.resource.image(path)
+    path2 = 'traffic_light_yellow.png'
+    new_image = pyglet.resource.image(path2)
     sprite_east.image = new_image
     sprite_west.image = new_image
 
 def ew_green_update(dt):
-    path = 'traffic_light_green.png'
-    new_image = pyglet.resource.image(path)
-    sprite_east.image = new_image
-    sprite_west.image = new_image
+    path2 = 'traffic_light_green.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
 
 
 #this part of the code does the interval scheduling for the sprite manipulation 
-pyglet.clock.schedule_interval(ns_green_update, 5)
-pyglet.clock.schedule_interval(ns_yellow_update, 5)
-pyglet.clock.schedule_interval(ns_red_update, 5)
+def update_sequence(dt):
+    ns_green_update(dt)
+    pyglet.clock.schedule_once(ns_yellow_update, 5)
+    pyglet.clock.schedule_once(ns_red_update, 10)
+    pyglet.clock.schedule_once(update_sequence, 15)
 
-if (ns_green_update): 
-    pyglet.clock.schedule_interval(ew_yellow_update, 5)
-    pyglet.clock.schedule_interval(ew_red_update, 5)
-
-if(ns_red_update): 
-    pyglet.clock.schedule_interval(ew_green_update, 5)
+    
+pyglet.clock.schedule_once(update_sequence, 0)
 
 
 @window.event
