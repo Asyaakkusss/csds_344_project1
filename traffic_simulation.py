@@ -1,6 +1,6 @@
 #for other users, remove my sys.path append. lmao 
 import sys
-sys.path.append(r'C:\Users\asyas\AppData\Local\Programs\Python\Python311\Lib\site-packages')
+#sys.path.append(r'C:\Users\asyas\AppData\Local\Programs\Python\Python311\Lib\site-packages')
 import pyglet
 
 #main image generated here 
@@ -54,6 +54,9 @@ def ns_red_update(dt):
     sprite_east.image = new_image2
     sprite_west.image = new_image2
 
+    # Schedule the yellow state transition for the west and east roads
+    pyglet.clock.schedule_once(ew_yellow_update, 1)
+
 
 ############# EW functions--not currently being used ###########################
 def ew_red_update(dt):
@@ -82,7 +85,6 @@ def update_sequence(dt):
     pyglet.clock.schedule_once(ns_red_update, 10)
     pyglet.clock.schedule_once(update_sequence, 15)
 
-    
 pyglet.clock.schedule_once(update_sequence, 0)
 
 
