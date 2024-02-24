@@ -43,17 +43,17 @@ pedestrian_sprite_east = pyglet.sprite.Sprite(pedestrian_red, x=285, y=280)
 pedestrian_sprite_east.scale = 0.2
 
 # Create sprite objects for left turn signals
-left_turn_sprite_north = pyglet.sprite.Sprite(left_turn_red, x=160, y=347)
+left_turn_sprite_north = pyglet.sprite.Sprite(left_turn_red, x=140, y=330)
 #left_turn_sprite_north.rotation += 90
 #left_turn_sprite_north.rotation += 0
-left_turn_sprite_south = pyglet.sprite.Sprite(left_turn_red, x=315, y=95)
+left_turn_sprite_south = pyglet.sprite.Sprite(left_turn_red, x=315, y=85)
 left_turn_sprite_south.rotation += 180
 
-left_turn_sprite_west = pyglet.sprite.Sprite(left_turn_green, x=80, y=150)
-left_turn_sprite_west.rotation += 90
+left_turn_sprite_west = pyglet.sprite.Sprite(left_turn_green, x=95, y=125)
+left_turn_sprite_west.rotation += 270
 
-left_turn_sprite_east = pyglet.sprite.Sprite(left_turn_green, x=367, y=250)
-left_turn_sprite_east.rotation += 270
+left_turn_sprite_east = pyglet.sprite.Sprite(left_turn_green, x=350, y=280)
+left_turn_sprite_east.rotation += 90
 
 #functions for updating the n/s traffic lights 
 def ns_green_left_update(dt):
@@ -66,6 +66,7 @@ def ns_green_left_update(dt):
     new_image2 = pyglet.resource.image(path2)
     sprite_east.image = new_image2
     sprite_west.image = new_image2
+    pyglet.clock.schedule_once(left_turn_update_ns, 0)    
 
 def ns_green_update(dt):
     print("north-south green")
@@ -77,6 +78,7 @@ def ns_green_update(dt):
     new_image2 = pyglet.resource.image(path2)
     sprite_east.image = new_image2
     sprite_west.image = new_image2
+    pyglet.clock.schedule_once(left_turn_red_update_ns, 0)    
 
     update_pedestrian_signals('green', 'red')
     #update_left_turn_signals('green')
@@ -84,6 +86,9 @@ def ns_green_update(dt):
     #left turn signals 
     #pyglet.clock.schedule_once(left_turn_update_ns, 0)
     #pyglet.clock.schedule_once(left_turn_update_ns, 0)
+
+def ns_green_right_update(dt):
+    pass
 
 def ns_yellow_update(dt): 
     print("north-south yellow")
@@ -154,7 +159,7 @@ def left_turn_update_ns(dt):
     left_turn_sprite_south.image = new_image
 
     # Schedule the left turn signal to turn red after a delay
-    pyglet.clock.schedule_once(left_turn_red_update_ns, 3)
+    #pyglet.clock.schedule_once(left_turn_red_update_ns, 3)
 
 # Function to turn left turn signals back to red for north/south
 def left_turn_red_update_ns(dt):
@@ -285,7 +290,8 @@ def ew_green_update(dt):
 
 #this part of the code does the interval scheduling for the sprite manipulation 
 def update_sequence(dt):
-    ns_green_update(dt)
+    ns_green_left_update(dt)
+    pyglet.clock.schedule_once(ns_green_update, 3)
     pyglet.clock.schedule_once(ns_yellow_update, 9)
     pyglet.clock.schedule_once(ns_red_update_ew_green, 12)
     pyglet.clock.schedule_once(ns_red_update_ew_yellow,21)
