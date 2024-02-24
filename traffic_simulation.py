@@ -49,10 +49,10 @@ left_turn_sprite_north = pyglet.sprite.Sprite(left_turn_red, x=140, y=330)
 left_turn_sprite_south = pyglet.sprite.Sprite(left_turn_red, x=315, y=85)
 left_turn_sprite_south.rotation += 180
 
-left_turn_sprite_west = pyglet.sprite.Sprite(left_turn_green, x=95, y=125)
+left_turn_sprite_west = pyglet.sprite.Sprite(left_turn_red, x=95, y=125)
 left_turn_sprite_west.rotation += 270
 
-left_turn_sprite_east = pyglet.sprite.Sprite(left_turn_green, x=350, y=280)
+left_turn_sprite_east = pyglet.sprite.Sprite(left_turn_red, x=350, y=280)
 left_turn_sprite_east.rotation += 90
 
 #functions for updating the n/s traffic lights 
