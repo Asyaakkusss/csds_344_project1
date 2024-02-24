@@ -1,6 +1,6 @@
 #for other users, remove my sys.path append. lmao 
 import sys
-#sys.path.append(r'C:\Users\asyas\AppData\Local\Programs\Python\Python311\Lib\site-packages')
+sys.path.append(r'C:\Users\asyas\AppData\Local\Programs\Python\Python311\Lib\site-packages')
 import pyglet
 
 #main image generated here 
@@ -45,7 +45,7 @@ pedestrian_sprite_east.scale = 0.2
 # Create sprite objects for left turn signals
 left_turn_sprite_north = pyglet.sprite.Sprite(left_turn_red, x=160, y=347)
 #left_turn_sprite_north.rotation += 90
-left_turn_sprite_north.rotation += 180
+#left_turn_sprite_north.rotation += 0
 left_turn_sprite_south = pyglet.sprite.Sprite(left_turn_red, x=315, y=95)
 left_turn_sprite_south.rotation += 180
 
@@ -71,7 +71,7 @@ def ns_green_update(dt):
     #update_left_turn_signals('green')
 
     #left turn signals 
-    pyglet.clock.schedule_once(left_turn_update_ns, 0)
+    #pyglet.clock.schedule_once(left_turn_update_ns, 0)
     #pyglet.clock.schedule_once(left_turn_update_ns, 0)
 
 def ns_yellow_update(dt): 
@@ -85,6 +85,7 @@ def ns_yellow_update(dt):
     sprite_east.image = new_image2
     sprite_west.image = new_image2
 
+"""
 def ns_red_update(dt): 
     print("north-south red")
     path = 'traffic_light_red.png'
@@ -97,16 +98,39 @@ def ns_red_update(dt):
     sprite_west.image = new_image2
 
     # Schedule the yellow state transition for the west and east roads
-    pyglet.clock.schedule_once(ew_yellow_update, 9)
+
+    pyglet.clock.schedule_once(ew_yellow_update, 3)
 
     #left turn signals 
-    pyglet.clock.schedule_once(left_turn_update_ew, 0)
+    
+    #pyglet.clock.schedule_once(left_turn_update_ew, 0)
     #pyglet.clock.schedule_once(ew_red_update, 15)
 
     #update_left_turn_signals('red')
     #Call pedestrian sign
     #update_pedestrian_signals('red', 'green')
+"""
+def ns_red_update_ew_green(dt):
+    print("north-south red")
+    path = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path)
+    sprite_south.image = new_image
+    sprite_north.image = new_image
+    path2 = 'traffic_light_green.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
 
+def ns_red_update_ew_yellow(dt):
+    print("north-south red")
+    path = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path)
+    sprite_south.image = new_image
+    sprite_north.image = new_image
+    path2 = 'traffic_light_yellow.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
 
 # Function to handle the left turn signal updates for north/south
 def left_turn_update_ns(dt):
@@ -245,15 +269,16 @@ def ew_green_update(dt):
 def update_sequence(dt):
     ns_green_update(dt)
     pyglet.clock.schedule_once(ns_yellow_update, 9)
-    pyglet.clock.schedule_once(ns_red_update, 12)
+    pyglet.clock.schedule_once(ns_red_update_ew_green, 12)
+    pyglet.clock.schedule_once(ns_red_update_ew_yellow,21)
     pyglet.clock.schedule_once(update_sequence, 24)
 
 pyglet.clock.schedule_once(update_sequence, 0)
 
 
 # Schedule update_pedestrian_signals from ns_green_update and ew_green_update functions
-pyglet.clock.schedule_once(ns_green_update, 10)
-pyglet.clock.schedule_once(ew_green_update, 10)
+#pyglet.clock.schedule_once(ns_green_update, 10)
+#pyglet.clock.schedule_once(ew_green_update, 10)
 
 
 @window.event
