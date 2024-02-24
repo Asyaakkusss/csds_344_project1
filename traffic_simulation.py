@@ -56,6 +56,17 @@ left_turn_sprite_east = pyglet.sprite.Sprite(left_turn_green, x=367, y=250)
 left_turn_sprite_east.rotation += 270
 
 #functions for updating the n/s traffic lights 
+def ns_green_left_update(dt):
+    print("north-south green left")
+    path = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path)
+    sprite_south.image = new_image
+    sprite_north.image = new_image
+    path2 = 'traffic_light_red.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
+
 def ns_green_update(dt):
     print("north-south green")
     path = 'traffic_light_green.png'
@@ -217,16 +228,21 @@ def pedestrian_update_red_ew(dt):
 # Update pedestrian signals based on traffic light state
 
 def update_pedestrian_signals(ns_traffic_light_state, ew_traffic_light_state):
-    if ns_traffic_light_state == 'green':
+    if (ns_traffic_light_state == 'green' and ew_traffic_light_state == 'red'):
         pedestrian_sprite_north.image = pedestrian_red
         pedestrian_sprite_south.image = pedestrian_red
         pedestrian_sprite_west.image = pedestrian_green
         pedestrian_sprite_east.image = pedestrian_green
-    else:
+    elif (ns_traffic_light_state == 'red' and ew_traffic_light_state == 'green'):
         pedestrian_sprite_north.image = pedestrian_green
         pedestrian_sprite_south.image = pedestrian_green
         pedestrian_sprite_west.image = pedestrian_red
         pedestrian_sprite_east.image = pedestrian_red
+    else:
+        pedestrian_sprite_north.image = pedestrian_red
+        pedestrian_sprite_south.image = pedestrian_red
+        pedestrian_sprite_west.image = pedestrian_red
+        pedestrian_sprite_east.image = pedestrian_red        
 
 
 
