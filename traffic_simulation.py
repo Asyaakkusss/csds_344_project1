@@ -66,7 +66,8 @@ def ns_green_left_update(dt):
     new_image2 = pyglet.resource.image(path2)
     sprite_east.image = new_image2
     sprite_west.image = new_image2
-    pyglet.clock.schedule_once(left_turn_update_ns, 0)    
+    pyglet.clock.schedule_once(left_turn_update_ns, 0)  
+    update_pedestrian_signals('red', 'red')  
 
 def ns_green_update(dt):
     print("north-south green")
@@ -126,6 +127,19 @@ def ns_red_update(dt):
     #Call pedestrian sign
     #update_pedestrian_signals('red', 'green')
 """
+def ns_red_update_ew_green_left(dt):
+    path = 'traffic_light_red.png'
+    new_image = pyglet.resource.image(path)
+    sprite_south.image = new_image
+    sprite_north.image = new_image
+    path2 = 'traffic_light_red.png'
+    new_image2 = pyglet.resource.image(path2)
+    sprite_east.image = new_image2
+    sprite_west.image = new_image2
+    pyglet.clock.schedule_once(left_turn_update_ew, 0)
+    update_pedestrian_signals('red', 'red')
+
+
 def ns_red_update_ew_green(dt):
     print("north-south red")
     path = 'traffic_light_red.png'
@@ -137,6 +151,7 @@ def ns_red_update_ew_green(dt):
     sprite_east.image = new_image2
     sprite_west.image = new_image2
     update_pedestrian_signals('red', 'green')
+    pyglet.clock.schedule_once(left_turn_red_update_ew, 0)
 
 def ns_red_update_ew_yellow(dt):
     print("north-south red")
@@ -179,7 +194,7 @@ def left_turn_update_ew(dt):
     left_turn_sprite_east.image = new_image
 
     # Schedule the left turn signal to turn red after a delay 
-    pyglet.clock.schedule_once(left_turn_red_update_ew, 3)
+    #pyglet.clock.schedule_once(left_turn_red_update_ew, 3)
 
 # Function to turn left turn signals back to red for east/west
 def left_turn_red_update_ew(dt):
@@ -293,7 +308,8 @@ def update_sequence(dt):
     ns_green_left_update(dt)
     pyglet.clock.schedule_once(ns_green_update, 3)
     pyglet.clock.schedule_once(ns_yellow_update, 9)
-    pyglet.clock.schedule_once(ns_red_update_ew_green, 12)
+    pyglet.clock.schedule_once(ns_red_update_ew_green_left, 12)
+    pyglet.clock.schedule_once(ns_red_update_ew_green, 15)
     pyglet.clock.schedule_once(ns_red_update_ew_yellow,21)
     pyglet.clock.schedule_once(update_sequence, 24)
 
